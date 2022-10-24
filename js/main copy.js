@@ -11,42 +11,8 @@ window.addEventListener("scroll", () => {
   }
 });
 /*-------------------pintar cards-----------------*/
-let eventosFinal = [];
-const URI = "https://amazing-events.herokuapp.com/api/events";
-traerDatos(URI);
 
-/*let cards = document.getElementById("cards__data");*/
-/*
-let article = document.getElementById("notfound");
-let div = document.createElement("div");
 
-function notFound() {
-  div.className = "notFound";
-  div.innerHTML = `<img src="./assets/notfound.png" class="img__notfound" alt="...">`;
-  article.appendChild(div);
-}
-
-function pintarCards(events) {
-  cards.innerHTML = "";
-  if (!events.length) {
-    notFound();
-  } else {
-    div.innerHTML = "";
-   /* events.forEach((eventos) => {
-      let card = document.createElement("div");
-      card.className = "card";
-      card.style.width = "21rem";
-      card.style.padding = "0.5rem";
-      card.innerHTML = `<img src="${eventos.image}" class="card-img-top card__image" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">${eventos.name}</h5>
-      <p class="card-text">${eventos.description}</p>
-      <a href="./details.html?_id=${eventos._id}" class="btn btn-primary">More info</a>
-    </div>`;
-      cards.appendChild(card);
-    });
-  */ /* }
-}
 
 /*-------------------pintar on page-----------------*/
 function traerDatos(url) {
@@ -355,7 +321,7 @@ console.log(arrayFinal);
 arrayFinal.forEach((eventos) => {
 let tr = document.createElement("tr");
 tr.className = "tg";
-tr.innerHTML = `
+tr.innerHTML = `  a
 <td><q>${eventos.category}</q></td>
 <td>$${eventos.revenue.toLocaleString()}</td>
 <td>%${eventos.percentage}</td>

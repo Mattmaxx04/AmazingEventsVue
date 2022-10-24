@@ -86,7 +86,7 @@
                        :id="category" :value="category" 
                        :value="category">
                       <label class="form-check-label" :for="category">
-                      <h4>{{category}}</h4> </label>
+                      <h4><div v-cloak>{{category}}</div></h4> </label>
                     </div>
                     
                     <div class="search" id="searcher">
@@ -94,7 +94,9 @@
                      
                     </div>
                   </form>
-          
+                  <div class="notFound" v-if="eventosFinal.length == 0">
+                    <img src="./assets/notfound.png" class="img__notfound" alt="...notFound">
+                  </div>
         </article>
   <!--------------------------cards----------------------------------->
     <article class="cards row" id="cards__data">

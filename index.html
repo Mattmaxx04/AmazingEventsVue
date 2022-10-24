@@ -56,6 +56,16 @@
 
   <!--------------------------MAIN----------------------------------->
   <main class="container-fluid home">
+    <div v-else-if="eventosFinal.length == 0 ">    
+    <div id="loaderSvgWrapper">
+      <svg xmlns:svg="www.w3.org/2000/svg" width="400px" height="400px" viewbox="0 0 200 200" id="preloader">
+        <circle cx="100" cy="100" r="3" id="red"/>
+        <circle cx="100" cy="100" r="8" id="orange"/>
+        <circle cx="100" cy="100" r="13" id="yellow"/>
+        <circle cx="100" cy="100" r="18" id="green"/>
+      </svg>
+    </div>
+  </div>
     <!--------------------------CAROUSEL----------------------------------->
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -76,15 +86,16 @@
     <section class="container-fluid">
       <!--------------------------form----------------------------------->
       <article class="article__form" id="notfound">
-
+        
         <form class="d-flex flex-wrap" id="checks">
-{{superFiltro}}
+          <div v-cloak>
+{{superFiltro}}</div>
           <div v-for="category in categorys" class="form-check form-switch d-flex flex-wrap">
            <input v-model="categoryCheck" class="form-check-input" type="checkbox" role="switch" 
              :id="category" :value="category" 
              :value="category">
             <label class="form-check-label" :for="category">
-            <h4>{{category}}</h4> </label>
+            <h4> <div v-cloak>{{category}}</div></h4> </label>
           </div>
           
           <div class="search" id="searcher">
@@ -92,7 +103,9 @@
           
           </div>
         </form>
-
+        <div class="notFound" v-if="eventosFinal.length==0 && bkpEventosFinal.length ==0">
+          <img src="./assets/notfound.png" class="img__notfound" alt="...notFound">
+        </div>
       </article>
       <!--------------------------cards----------------------------------->
       <article class="cards row" id="cards__data">

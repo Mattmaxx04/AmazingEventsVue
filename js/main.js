@@ -63,33 +63,20 @@ createApp({
           this.estadisticas.evento1 = eventHandL[0]
           this.estadisticas.evento2 = eventHandL[eventHandL.length - 1]
           this.estadisticas.evento3 = eventCapacity[0]
-          let prueba = this.showTable(eventosPast)
-          let prueba2 = this.showTable(eventosUp)
-          console.log(prueba);
-          console.log(prueba2);
+          this.estadisticas.estadisticasPast = this.showTable(eventosPast)
+          this.estadisticas.estadisticasUpcoming = this.showTable(eventosUp) 
+          console.log(this.estadisticas.estadisticasPast);   
+          console.log(this.estadisticas.estadisticasUpcoming);     
           if (document.title == "Home") {
             this.eventosFinal;
           } else if (document.title == "Upcoming Events") {
             this.bkpEventosFinal = eventosUp;
-            console.log(this.eventosFinal);
           } else if (document.title == "Past Events") {
             this.bkpEventosFinal = eventosPast;
-            console.log(this.eventosFinal);
           } else if (document.title == "Details") {
             let id = new URLSearchParams(location.search).get("_id");
             this.evento = this.eventosFinal.find((events) => events._id == id);
-          } else if (document.title == "Stats") {
-          } else if (document.title == "Contact") {
-            /*const contactForm = document.querySelector("#formulario");
-          const enviarForm = (evento) => {
-            evento.preventDefault();
-            new swal("Thankyou!", "You message has been sent!", "success");
-            document.forms[0][0].value = ""
-            document.forms[0][1].value = ""
-            document.forms[0][2].value = ""
-          };
-          contactForm.addEventListener("submit", enviarForm);*/
-          }
+          } 
 
         });
     },
@@ -107,7 +94,6 @@ createApp({
           });
         revenues.push(filtrados);
       });
-      console.log(revenues);
       return revenues;
     },
     highest(events) {
@@ -128,12 +114,13 @@ createApp({
         });    
         eventHighest.push(nuevo.toFixed(2));
       });
-      console.log(this.eventHighest);
       return eventHighest;
-    },showTable(events){
+    },
+    showTable(events){
       let categoryStats = [];
       events.forEach((event) => categoryStats.push(event.category));
       let categoriaFiltrada = Array.from(new Set(categoryStats));
+      
       let revenues = this.sacarRevenues(events);
       let eventHighest = this.highest(events);
       let arrayFusionado = [];
@@ -146,8 +133,20 @@ createApp({
           };
         }
       )
+      return arrayFusionado;
     },
-    
+    enviarForm(){      
+      new swal("Thankyou!", "You message has been sent!", "success");
+      document.forms[0][0].value = "";
+      document.forms[0][1].value = "";
+      document.forms[0][2].value = "";
+      
+    },   
+    /*(window).on('load', */loading(){
+                       $('#loaderSvgWrapper').fadeOut(500);
+                      $('#preloader').delay(350).fadeOut('slow');
+                      $('body').delay(350).css({'overflow':'visible'});
+                  }     
   },
   computed: {
     superFiltro() {

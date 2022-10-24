@@ -91,7 +91,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr >
+                <tr>
                   <td>
                     <a v-if="estadisticas.evento1" :href="'./details.html?_id='+estadisticas.evento1._id"
                       class="btn btn-primary">{{estadisticas.evento1.name}}</a>
@@ -119,8 +119,13 @@
                 </tr>
               </thead>
               <tbody class="table2" id="table2">
-                
+
                 <!-----------pinta contenido tabla2----------------------->
+                <tr v-for="eventos in estadisticas.estadisticasUpcoming" class="tg">
+                  <td><q>{{eventos.category}}</q></td>
+                  <td>${{eventos.revenue.toLocaleString()}}</td>
+                  <td>{{eventos.percentage}} %</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -137,6 +142,11 @@
               </thead>
               <tbody class="table3" id="table3">
                 <!-----------pinta contenido tabla3----------------------->
+                <tr v-for="eventos in estadisticas.estadisticasPast" class="tg">
+                  <td><q>{{eventos.category}}</q></td>
+                  <td>${{eventos.revenue.toLocaleString()}}</td>
+                  <td>{{eventos.percentage}} %</td>
+                </tr>
               </tbody>
             </table>
           </div>
