@@ -17,13 +17,13 @@ createApp({
         estadisticasUpcoming: {},
         estadisticasPast: {},
       },
-      prueba: [],
     };
   },
   created() {
     this.traerDatos();
   },
   mounted() {
+    
   },
   methods: {
 
@@ -142,13 +142,11 @@ createApp({
       document.forms[0][2].value = "";
       
     },   
-    /*(window).on('load', */loading(){
-                       $('#loaderSvgWrapper').fadeOut(500);
-                      $('#preloader').delay(350).fadeOut('slow');
-                      $('body').delay(350).css({'overflow':'visible'});
-                  }     
-  },
+                 
+ 
+},
   computed: {
+    
     superFiltro() {
       let filtroTexto = this.bkpEventosFinal.filter(evento =>
         evento.name.toLowerCase().includes(this.searcher.toLowerCase())
@@ -162,5 +160,6 @@ createApp({
         this.eventosFinal = filtroTexto;
       }
     },
+  
   },
 }).mount("#app");

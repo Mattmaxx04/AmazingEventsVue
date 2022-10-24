@@ -56,16 +56,7 @@
 
   <!--------------------------MAIN----------------------------------->
   <main class="container-fluid home">
-    <div v-else-if="eventosFinal.length == 0 ">    
-    <div id="loaderSvgWrapper">
-      <svg xmlns:svg="www.w3.org/2000/svg" width="400px" height="400px" viewbox="0 0 200 200" id="preloader">
-        <circle cx="100" cy="100" r="3" id="red"/>
-        <circle cx="100" cy="100" r="8" id="orange"/>
-        <circle cx="100" cy="100" r="13" id="yellow"/>
-        <circle cx="100" cy="100" r="18" id="green"/>
-      </svg>
-    </div>
-  </div>
+    
     <!--------------------------CAROUSEL----------------------------------->
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -138,12 +129,17 @@
     </p>
     <h5>Cohort</h5>
   </footer>
-  <a href="#top" class="btnup"><i class="bi bi-arrow-up-circle-fill"></i></i></a>
+  <a  href="#top" class="btnup" >
+    <i class="bi bi-arrow-up-circle-fill" ></i>
+  </a>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/totop.js"></script>
 </div>
 </body>
 
